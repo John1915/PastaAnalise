@@ -27,12 +27,6 @@
             color: var(--text)
         }
 
-        a {
-            color: var(--accent);
-            text-decoration: none
-        }
-
-        /* topo */
         header {
             position: sticky;
             top: 0;
@@ -67,7 +61,7 @@
 
         .wrap {
             display: grid;
-            grid-template-columns: 260px 1fr;
+            grid-template-columns: 260px 1fr 240px;
             gap: 20px;
             padding: 20px
         }
@@ -94,7 +88,8 @@
             border-radius: 8px;
             color: var(--text);
             font-size: 14px;
-            font-weight: 500
+            font-weight: 500;
+            text-decoration: none
         }
 
         nav a.active {
@@ -115,10 +110,23 @@
             box-shadow: 0 1px 3px rgba(0, 0, 0, .05)
         }
 
+        section {
+            display: none;
+        }
+
+        section.active {
+            display: block;
+        }
+
         h1 {
             margin: 0 0 12px;
             font-size: 22px;
             color: #111827
+        }
+
+        h3 {
+            margin-top: 20px;
+            font-size: 18px;
         }
 
         p {
@@ -127,21 +135,40 @@
             font-size: 15px
         }
 
-        .callout {
-            padding: 12px 14px;
-            border-radius: 8px;
-            margin: 14px 0;
-            font-size: 14px
+        ul {
+            line-height: 1.7;
+            font-size: 15px;
+            margin: 0;
+            padding-left: 20px
         }
 
-        .info {
-            background: #e0f2fe;
-            color: #075985
+        aside {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 16px;
         }
 
-        .tip {
-            background: #ecfdf5;
-            color: #065f46
+        aside h4 {
+            margin: 0 0 10px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: .6px;
+            color: var(--muted);
+        }
+
+        aside a {
+            display: block;
+            margin: 4px 0;
+            padding: 6px 8px;
+            border-radius: 6px;
+            color: var(--text);
+            font-size: 14px;
+            text-decoration: none
+        }
+
+        aside a:hover {
+            background: #f3f4f6;
         }
 
         footer {
@@ -152,9 +179,13 @@
             color: var(--muted)
         }
 
-        @media (max-width:900px) {
+        @media(max-width:900px) {
             .wrap {
                 grid-template-columns: 1fr
+            }
+
+            aside {
+                display: none
             }
         }
     </style>
@@ -169,32 +200,155 @@
     </header>
 
     <div class="wrap">
+        <!-- MENU ESQUERDO (já sem "Regras") -->
         <nav>
-            <h4>Introdução</h4>
-            <a class="active" href="#boas">👋 1.1 Boas-vindas</a>
-            <a href="#estrutura">🧭 1.2 Estrutura do manual</a>
-            <h4>Políticas</h4>
-            <a href="#ferias">📝 2.1 Política de Férias</a>
-            <a href="#conduta">🤝 2.2 Código de Conduta</a>
-            <h4>Procedimentos</h4>
-            <a href="#onboarding">🌿 3.1 Onboarding de Colaboradores</a>
+            <a class="active" href="#boas">👋 Boas-vindas</a>
+            <a href="#poderes">🛡️ Poderes ingame</a>
+            <a href="#abreviacoes">📑 Abreviações</a>
         </nav>
 
+        <!-- CONTEÚDO CENTRAL -->
         <main>
-            <section id="boas">
-                <h1>👋 1.1 Boas-vindas</h1>
-                <div class="callout info">Visão geral do manual e como navegar.</div>
+            <section id="boas" class="active">
+                <h1>Boas-vindas</h1>
                 <p>Olá e bem vindo(a) a equipe da ANALISE da CIDADE NOBRE!</p>
                 <p>Esta etapa inicial contém os principais ensinamentos e práticas que todos os ANALISTAS devem conhecer
                     e seguir para desempenhar suas funções com excelência e respeito às regras da equipe.</p>
-                <div class="callout tip"><strong>Dica:</strong> adicione favoritos para os tópicos mais usados.</div>
+            </section>
+
+            <!-- PODERES -->
+            <section id="poderes">
+                <h1>Poderes ingame</h1>
+                <p>Somos uma pasta voltada para Discord, isso não é novidade.</p>
+                <p>Entretanto, temos obrigação de fornecer todo o suporte necessário dentro da cidade também e para isso
+                    são disponibilizados os poderes.</p>
+                <p><strong>Então, utilize com sabedoria e não esqueça de registrar, pois ABUSO DE PODER É BAN DA PASTA E
+                        CITY.</strong></p>
+
+                <h3 id="poderes-registrar">1. PODERES QUE DEVEM SER REGISTRADOS</h3>
+                <ul>
+                    <li><strong>GOD</strong> — somente devido a bug ou algo relacionado;</li>
+                    <li><strong>DV</strong> — somente devido a bug ou algo relacionado;</li>
+                    <li><strong>WALL em RP</strong> — somente para pegar hacker ou player zaralhando;</li>
+                    <li><strong>FIX</strong> — nunca deve ser usado independente da situação.</li>
+                </ul>
+
+                <h3 id="poderes-motivos">2. MOTIVOS PARA USAR</h3>
+                <ul>
+                    <li><strong>Não use os poderes em RP em nenhuma hipótese!</strong> Se sofrer RDM ou algo
+                        relacionado, suba na call e peça ajuda a um superior.</li>
+                    <li><strong>Não aplique punições por conta própria</strong> (se aconteceu com você). Sempre passe
+                        para um superior resolver.</li>
+                    <li>Em caso de <strong>morte por queda</strong> ou <strong>ataque hacker</strong>, você pode usar o
+                        <strong>GOD</strong> (com consciência).
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ABREVIAÇÕES -->
+            <section id="abreviacoes">
+                <h1>Abreviações</h1>
+                <h3 id="staff">1. Staff</h3>
+                <ul>
+                    <li>Contato - CT</li>
+                    <li>Logs - LOGS</li>
+                    <li>Discord - DC</li>
+                    <li>Análise - AN</li>
+                    <li>Mentoria - MT</li>
+                    <li>Assistência - AST</li>
+                    <li>Qualidade - QA</li>
+                    <li>Solution - SL</li>
+                    <li>Tickets - TKTS</li>
+                    <li>Ações - AC</li>
+                    <li>FacXFac - FXF</li>
+                    <li>Festival - FEST</li>
+                    <li>Eventos - EVT</li>
+                    <li>Entretenimento - ENT</li>
+                    <li>Telagem - TL</li>
+                    <li>Chamados - CH</li>
+                    <li>Social Mídia - SM</li>
+                    <li>Legal - LGL</li>
+                    <li>Organizações - ORGS</li>
+                    <li>Recrutamento - REC</li>
+                    <li>Anti Zaralho - AZ</li>
+                    <li>Anti Hacker - AH</li>
+                    <li>Anti RDM - AR</li>
+                    <li>Resenha - RES</li>
+                </ul>
+                <h3 id="naostaff">2. Não Staff’s</h3>
+                <ul>
+                    <li>MASTER WALLSTREAT - MASTER WALL</li>
+                    <li>Afiliados - AFL</li>
+                    <li>Expansão - EXP</li>
+                    <li>Inovação - INV</li>
+                    <li>Interação - ITC</li>
+                    <li>Contenção - CNT</li>
+                    <li>Introdução - INT</li>
+                    <li>Conexão - CNX</li>
+                    <li>Retenção - RET</li>
+                    <li>Inclusão - INC</li>
+                    <li>Whitelist - WL</li>
+                    <li>Recovery - RCV</li>
+                </ul>
             </section>
         </main>
+
+        <!-- ÍNDICE DIREITO -->
+        <aside id="indice">
+            <h4>Índice desta página</h4>
+            <a href="#boas">Boas-vindas</a>
+            <a href="#poderes">Poderes ingame</a>
+            <a href="#abreviacoes">Abreviações</a>
+        </aside>
     </div>
 
     <footer>
         © 2025 Equipe Analise — Manual v1.0 • Última atualização: 2025-08-15
     </footer>
+
+    <script>
+        const menuLinks = document.querySelectorAll("nav a");
+        const sections = document.querySelectorAll("main section");
+        const indice = document.getElementById("indice");
+
+        const indicesDefault = `
+      <h4>Índice desta página</h4>
+      <a href="#boas">Boas-vindas</a>
+      <a href="#poderes">Poderes ingame</a>
+      <a href="#abreviacoes">Abreviações</a>
+    `;
+
+        const indicesAbreviacoes = `
+      <h4>Índice desta página</h4>
+      <a href="#staff">Staff</a>
+      <a href="#naostaff">Não Staff’s</a>
+    `;
+
+        const indicesPoderes = `
+      <h4>Índice desta página</h4>
+      <a href="#poderes-registrar">1. Poderes que devem ser registrados</a>
+      <a href="#poderes-motivos">2. Motivos para usar</a>
+    `;
+
+        menuLinks.forEach(link => {
+            link.addEventListener("click", e => {
+                e.preventDefault();
+                menuLinks.forEach(l => l.classList.remove("active"));
+                sections.forEach(s => s.classList.remove("active"));
+                link.classList.add("active");
+                const id = link.getAttribute("href").substring(1);
+                document.getElementById(id).classList.add("active");
+
+                if (id === "abreviacoes") {
+                    indice.innerHTML = indicesAbreviacoes;
+                } else if (id === "poderes") {
+                    indice.innerHTML = indicesPoderes;
+                } else {
+                    indice.innerHTML = indicesDefault;
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
