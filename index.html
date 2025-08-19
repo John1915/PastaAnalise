@@ -200,10 +200,11 @@
     </header>
 
     <div class="wrap">
-        <!-- MENU ESQUERDO (já sem "Regras") -->
+        <!-- MENU ESQUERDO -->
         <nav>
             <a class="active" href="#boas">👋 Boas-vindas</a>
             <a href="#poderes">🛡️ Poderes ingame</a>
+            <a href="#hierarquia">🏛️ HIERARQUIA - ANÁLISE</a>
             <a href="#abreviacoes">📑 Abreviações</a>
         </nav>
 
@@ -243,6 +244,70 @@
                         <strong>GOD</strong> (com consciência).
                     </li>
                 </ul>
+            </section>
+
+            <!-- HIERARQUIA - ANÁLISE -->
+            <section id="hierarquia">
+                <h1>HIERARQUIA - ANÁLISE</h1>
+
+                <h3 id="adm">1. ADM</h3>
+                <ul>
+                    <li>@ADM | ❄ Pitchula #CRGV</li>
+                </ul>
+
+                <h3 id="resp">2. Resp</h3>
+                <ul>
+                    <li>@Resp. AN | 🧸 Estela | 306</li>
+                </ul>
+
+                <h3 id="auxiliar">3. Auxiliar</h3>
+                <ul>
+                    <li>-</li>
+                    <li>-</li>
+                </ul>
+
+                <h3 id="lider">4. Líder</h3>
+                <ul>
+                    <li>@Lid. AN | 🐺 CARIOCA | 4623</li>
+                    <li>@Lid. AN | 🐺 Kant Legit | 52867</li>
+                </ul>
+
+                <h3 id="sub">5. Sub</h3>
+                <ul>
+                    <li>@Sub. AN | 🐺 BETO | 58625</li>
+                    <li>@Sub. AN | 🐺 João Victor | 138884</li>
+                    <li>@Sub. AN | 🐺 Cebolinha | 129427</li>
+                </ul>
+
+                <h3 id="pleno">6. Pleno</h3>
+                <ul>
+                    <li>@AN-P | 🐺 LCZADA | 119053</li>
+                    <li>@AN-P | 🐺 Maradona | 179954</li>
+                    <li>@AN-P | 🐺 nt | 665</li>
+                    <li>@AN-P | 🐺 Theo | 14925</li>
+                    <li>@AN-P | 🐺 Enrique Slv | 239208</li>
+                    <li>@AN-P | 🐺 Pablo pato | 156864</li>
+                    <li>@AN-P | 🐺 Lil Jeca | 254232</li>
+                </ul>
+
+                <h3 id="junior">7. Júnior</h3>
+                <ul>
+                    <li>@AN-J | 🐺 slowz rlk | 243773</li>
+                    <li>@AN-J | 🐺 DYLAN | 159217</li>
+                </ul>
+
+                <h3 id="estagiario">8. Estagiário</h3>
+                <ul>
+                    <li>@AN-E | 🐺 Rafael | 222432</li>
+                    <li>@AN-E | 🐺 FREDERICO | 159288</li>
+                    <li>@AN-E | 🐺 Manda Fodé | 217415</li>
+                    <li>@AN-E | 🐺 Tiago Faria | 248063</li>
+                    <li>@AN-E | 🐺 vitor mirinaldo | 72567</li>
+                    <li>@AN-E | 🐺 Araujo | 36438</li>
+                    <li>@AN-E | 🐺 Cleton baston | 225526</li>
+                </ul>
+
+                <p> Caso eu tenha esquecido alguém, me avisa que eu atualizo 😉</p>
             </section>
 
             <!-- ABREVIAÇÕES -->
@@ -298,6 +363,7 @@
             <h4>Índice desta página</h4>
             <a href="#boas">Boas-vindas</a>
             <a href="#poderes">Poderes ingame</a>
+            <a href="#hierarquia">HIERARQUIA - ANÁLISE</a>
             <a href="#abreviacoes">Abreviações</a>
         </aside>
     </div>
@@ -315,6 +381,7 @@
       <h4>Índice desta página</h4>
       <a href="#boas">Boas-vindas</a>
       <a href="#poderes">Poderes ingame</a>
+      <a href="#hierarquia">HIERARQUIA - ANÁLISE</a>
       <a href="#abreviacoes">Abreviações</a>
     `;
 
@@ -330,6 +397,18 @@
       <a href="#poderes-motivos">2. Motivos para usar</a>
     `;
 
+        const indicesHierarquia = `
+      <h4>Índice desta página</h4>
+      <a href="#adm">1. ADM</a>
+      <a href="#resp">2. Resp</a>
+      <a href="#auxiliar">3. Auxiliar</a>
+      <a href="#lider">4. Líder</a>
+      <a href="#sub">5. Sub</a>
+      <a href="#pleno">6. Pleno</a>
+      <a href="#junior">7. Júnior</a>
+      <a href="#estagiario">8. Estagiário</a>
+    `;
+
         menuLinks.forEach(link => {
             link.addEventListener("click", e => {
                 e.preventDefault();
@@ -343,6 +422,8 @@
                     indice.innerHTML = indicesAbreviacoes;
                 } else if (id === "poderes") {
                     indice.innerHTML = indicesPoderes;
+                } else if (id === "hierarquia") {
+                    indice.innerHTML = indicesHierarquia;
                 } else {
                     indice.innerHTML = indicesDefault;
                 }
