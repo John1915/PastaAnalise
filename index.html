@@ -4,558 +4,154 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Equipe Mentoria Nobre — Documentação</title>
-    <meta name="description"
-        content="Site de documentação para equipe — template responsivo inspirado em layout de knowledge base" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>EQUIPE ANALISE</title>
     <style>
         :root {
-            --bg: #0d0f14;
-            /* fundo principal (dark) */
-            --bg-elev: #131722;
-            /* cartões / barras */
-            --border: #1f2430;
-            /* linhas sutis */
-            --text: #e6e8ee;
-            /* texto */
-            --muted: #9aa4b2;
-            /* secundário */
+            --bg: #0e1117;
+            --panel: #121826;
+            --text: #e8ecf1;
+            --muted: #a6b0c3;
+            --line: #1c2333;
             --accent: #7aa2ff;
-            /* azul docs */
-            --accent-2: #9b7bff;
-            /* roxo leve */
-            --ok: #8be9a5;
-            --warn: #ffd166;
-            --danger: #ff6b6b;
-            --radius: 14px;
-            --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+            --radius: 12px;
         }
 
         * {
-            box-sizing: border-box;
-        }
-
-        html,
-        body {
-            height: 100%;
+            box-sizing: border-box
         }
 
         body {
             margin: 0;
-            font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-            background: linear-gradient(180deg, #0b0d12 0%, #0e121a 100%);
-            color: var(--text);
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text)
         }
 
         a {
-            color: var(--accent);
-            text-decoration: none;
+            color: var(--text);
+            text-decoration: none
         }
 
-        a:hover {
-            text-decoration: underline;
-        }
-
-        /* App shell */
-        .app {
-            display: grid;
-            grid-template-columns: 280px 1fr 280px;
-            gap: 20px;
-            padding: 16px;
-        }
-
-        header.topbar {
-            grid-column: 1 / -1;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            background: var(--bg-elev);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 10px 12px;
+        /* topo */
+        header {
             position: sticky;
-            top: 12px;
-            z-index: 20;
-            box-shadow: var(--shadow);
-        }
-
-        .logo {
+            top: 0;
+            z-index: 5;
             display: flex;
             align-items: center;
             gap: 10px;
-            font-weight: 800;
-            letter-spacing: .2px;
+            background: var(--panel);
+            border-bottom: 1px solid var(--line);
+            padding: 10px 14px
         }
 
-        .logo .mark {
+        header .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700
+        }
+
+        header .brand .icon {
             width: 28px;
             height: 28px;
-            display: inline-grid;
+            display: grid;
             place-items: center;
             border-radius: 8px;
-            background: radial-gradient(60% 60% at 50% 40%, #9b7bff 0%, #7aa2ff 60%, #4463ff 100%);
-            box-shadow: 0 6px 20px rgba(122, 162, 255, .45);
+            background: #0f1526;
+            border: 1px solid var(--line)
         }
 
-        .search {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: #0e1320;
-            border: 1px solid var(--border);
-            padding: 8px 10px;
-            border-radius: 10px;
-            min-width: 160px;
+        header .brand span {
+            letter-spacing: .2px
         }
 
-        .search input {
-            flex: 1;
-            background: transparent;
-            border: 0;
-            outline: none;
-            color: var(--text);
-            font-size: 14px;
+        /* layout simples */
+        .wrap {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 16px;
+            padding: 16px
         }
 
-        .top-actions {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn {
-            border: 1px solid var(--border);
-            background: #0f1422;
-            color: var(--text);
-            padding: 8px 10px;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            border-color: #2a3344;
-        }
-
-        /* Sidebar */
-        nav.sidebar {
-            background: var(--bg-elev);
-            border: 1px solid var(--border);
+        nav {
+            background: var(--panel);
+            border: 1px solid var(--line);
             border-radius: var(--radius);
+            padding: 8px
+        }
+
+        nav h4 {
+            margin: 8px 8px 4px;
+            font-size: 12px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: .6px
+        }
+
+        nav a {
+            display: block;
             padding: 10px;
-            position: sticky;
-            top: 68px;
-            height: calc(100dvh - 84px);
-            overflow: auto;
-            box-shadow: var(--shadow);
+            border-radius: 8px;
+            color: var(--text)
         }
 
-        .nav-group {
-            margin-bottom: 12px;
+        nav a.active,
+        nav a:hover {
+            background: #0f1526;
+            border: 1px solid var(--line)
         }
 
-        .nav-title {
-            font-size: 13px;
-            letter-spacing: .6px;
-            text-transform: uppercase;
-            color: var(--muted);
-            margin: 6px 10px;
-        }
-
-        .nav-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 10px;
-            border-radius: 10px;
-            color: var(--text);
-            border: 1px solid transparent;
-        }
-
-        .nav-item:hover {
-            background: #0f1421;
-            border-color: #1f2740;
-        }
-
-        .nav-item.active {
-            background: linear-gradient(180deg, #192036, #141a2a);
-            border-color: #2b3552;
-            box-shadow: inset 0 0 0 1px #2b3552;
-        }
-
-        /* Main */
-        main.content {
-            background: var(--bg-elev);
-            border: 1px solid var(--border);
+        main {
+            background: var(--panel);
+            border: 1px solid var(--line);
             border-radius: var(--radius);
-            padding: 26px;
-            box-shadow: var(--shadow);
-        }
-
-        .page-kicker {
-            font-weight: 600;
-            color: var(--muted);
-            text-transform: uppercase;
-            letter-spacing: .5px;
+            padding: 20px;
+            min-height: 60vh
         }
 
         h1 {
-            font-size: clamp(28px, 3.4vw, 44px);
-            margin: 6px 0 12px;
-            letter-spacing: .3px;
+            margin: 0 0 8px;
+            font-size: 24px
         }
 
-        .sub {
-            color: var(--muted);
-            font-size: 16px;
-            line-height: 1.6;
+        p {
+            color: #d5d9e3;
+            line-height: 1.7
         }
 
-        hr.sep {
-            border: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #2a3350, transparent);
-            margin: 24px 0;
-        }
-
-        section.block {
-            padding: 6px 0 14px;
-        }
-
-        section.block h2 {
-            font-size: 22px;
-            margin: 14px 0 6px;
-            scroll-margin-top: 90px;
-        }
-
-        section.block h3 {
-            font-size: 18px;
-            margin: 12px 0 4px;
-            scroll-margin-top: 90px;
-        }
-
-        p,
-        li {
-            color: #d6d9e3;
-            line-height: 1.7;
-        }
-
-        ul {
-            padding-left: 18px;
-        }
-
-        .callout {
-            padding: 12px 14px;
-            border-radius: 12px;
-            border: 1px solid #2a3146;
-            background: #0e1425;
-        }
-
-        /* TOC */
-        aside.toc {
-            background: var(--bg-elev);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 16px;
-            position: sticky;
-            top: 68px;
-            height: calc(100dvh - 84px);
-            overflow: auto;
-            box-shadow: var(--shadow);
-        }
-
-        .toc h4 {
-            margin: 4px 0 10px;
-            color: var(--muted);
-            text-transform: uppercase;
-            font-size: 12px;
-            letter-spacing: .7px;
-        }
-
-        .toc a {
-            display: block;
-            padding: 8px 10px;
-            margin: 2px 0;
-            border-radius: 8px;
-            color: var(--muted);
-            border: 1px solid transparent;
-        }
-
-        .toc a:hover {
-            color: var(--text);
-            background: #0f1421;
-            border-color: #1f2740;
-        }
-
-        .toc a.active {
-            color: var(--text);
-            background: linear-gradient(180deg, #192036, #141a2a);
-            border-color: #2b3552;
-        }
-
-        /* Footer */
-        footer {
-            grid-column: 1 / -1;
-            color: var(--muted);
-            font-size: 13px;
-            padding: 14px 8px;
-            text-align: center;
-        }
-
-        /* Mobile */
-        .hamb {
-            display: none;
-        }
-
-        @media (max-width: 1100px) {
-            .app {
-                grid-template-columns: 1fr;
-            }
-
-            nav.sidebar,
-            aside.toc {
-                position: fixed;
-                inset: 0 0 auto 0;
-                height: auto;
-                max-height: 70vh;
-                border-radius: 16px;
-                margin: 12px;
-                display: none;
-                z-index: 40;
-            }
-
-            nav.sidebar.open,
-            aside.toc.open {
-                display: block;
-            }
-
-            header.topbar {
-                position: sticky;
-                top: 0;
-                border-radius: 0;
-            }
-
-            .hamb {
-                display: inline-flex;
-                align-items: center;
-                gap: 6px;
-            }
-
-            .app main.content {
-                margin-top: 6px;
+        /* mobile */
+        @media (max-width:900px) {
+            .wrap {
+                grid-template-columns: 1fr
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="app">
-        <header class="topbar">
-            <button class="btn hamb" id="openNav">☰ Menu</button>
-            <div class="logo" aria-label="Início">
-                <div class="mark">😈</div>
-                <div>EQUIPE MENTORIA NOBRE</div>
-            </div>
-            <div class="search" role="search">
-                <span>🔎</span>
-                <input id="search" placeholder="Buscar tópicos, páginas... (Filtra menu)" />
-            </div>
-            <div class="top-actions">
-                <button class="btn" id="openToc">Índice</button>
-                <a class="btn" href="#" id="editLink" title="Editar esta página">✏️ Editar</a>
-                <a class="btn" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
-            </div>
-        </header>
+    <header>
+        <div class="brand" aria-label="Início">
+            <div class="icon">🔎</div>
+            <span>EQUIPE ANALISE</span>
+        </div>
+    </header>
 
-        <nav class="sidebar" id="sidebar" aria-label="Navegação">
-            <div class="nav-group">
-                <div class="nav-title">Equipe Mentoria</div>
-                <a class="nav-item active" href="#mentoria-1">📚 1ª Mentoria</a>
-                <a class="nav-item" href="#mentoria-2">📗 2ª Mentoria</a>
-                <a class="nav-item" href="#mentoria-3">📘 3ª Mentoria</a>
-            </div>
-            <div class="nav-group" id="sectionLinks">
-                <div class="nav-title">Seções desta página</div>
-                <!-- preenchido via JS com base nos h2 -->
-            </div>
+    <div class="wrap">
+        <nav aria-label="Navegação">
+            <h4>Pastas</h4>
+            <a class="active" href="#boas">📁 Boas</a>
         </nav>
 
-        <main class="content" id="main">
-            <div class="page-kicker">📚 EQUIPE MENTORIA</div>
-            <h1>1ª MENTORIA</h1>
-            <p class="sub">Você está começando sua jornada como <strong>HELP</strong>, um cargo essencial para garantir
-                que todos os jogadores tenham uma boa experiência. Ouça com atenção os ensinamentos abaixo.</p>
-            <hr class="sep" />
-
-            <article id="mentoria-1" data-toc>
-                <section class="block" id="funcao-do-help">
-                    <h2>1. FUNÇÃO DO HELP 🔧</h2>
-                    <ul>
-                        <li>Atender jogadores que precisam de ajuda via Discord (call <em>Preciso de ajuda</em>).</li>
-                        <li>Atender nas chamadas numeradas de <strong>1 a 12</strong>.</li>
-                        <li>Manter postura cordial, objetiva e empática em todas as interações.</li>
-                    </ul>
-                    <div class="callout"><strong>Dica:</strong> registre cada atendimento (ticket) com contexto, ação
-                        tomada e resultado.</div>
-                </section>
-
-                <section class="block" id="metas">
-                    <h2>2. METAS 🎯</h2>
-                    <ul>
-                        <li>Tempo médio de primeira resposta &lt; 3 min.</li>
-                        <li>Taxa de resolução no primeiro contato &gt; 70%.</li>
-                        <li>Satisfação (CSAT) &gt; 4.6/5.</li>
-                    </ul>
-                </section>
-
-                <section class="block" id="empatia">
-                    <h2>3. EMPATIA ✨</h2>
-                    <p>Escute antes de responder, valide o sentimento do player e ofereça caminhos claros.</p>
-                </section>
-
-                <section class="block" id="cultura">
-                    <h2>4. CULTURA 💖</h2>
-                    <ul>
-                        <li>Transparência, respeito e foco na comunidade.</li>
-                        <li>Sem favoritismo: regras valem para todos.</li>
-                    </ul>
-                </section>
-
-                <section class="block" id="restricoes">
-                    <h2>5. RESTRIÇÕES ⚠️</h2>
-                    <ul>
-                        <li>Não resolver conflitos complexos sozinho—escalar para moderadores.</li>
-                        <li>Não prometer <em>itens</em> ou <em>vantagens</em>.</li>
-                    </ul>
-                </section>
-
-                <section class="block" id="tickets">
-                    <h2>6. TICKETS 🎟️</h2>
-                    <p>Abra ticket para atendimentos que exijam acompanhamento. Padronize título, tags e status.</p>
-                </section>
-
-                <section class="block" id="denuncias">
-                    <h2>7. DENÚNCIAS, DÚVIDAS E MUNDO SOLO 🧐</h2>
-                    <p>Centralize evidências (prints, IDs, horário). Siga o fluxo de triagem.</p>
-                </section>
-
-                <section class="block" id="pesquisa">
-                    <h2>8. PESQUISA DE ADVERTÊNCIAS E BANIMENTOS 📊</h2>
-                    <p>Procedimentos para checagens e revisão com logs.</p>
-                </section>
-
-                <section class="block" id="chats">
-                    <h2>9. CHATS PARA ACESSAR 💬</h2>
-                    <ul>
-                        <li>#preciso-de-ajuda — primeiro ponto de contato.</li>
-                        <li>#triagem — organização de casos.</li>
-                        <li>#mentoria — alinhamentos e updates.</li>
-                    </ul>
-                </section>
-            </article>
-
-            <article id="mentoria-2" data-toc hidden>
-                <h2>Conteúdo da 2ª Mentoria</h2>
-                <p>Preencha com suas diretrizes. Eu ajusto conforme você enviar.</p>
-            </article>
-
-            <article id="mentoria-3" data-toc hidden>
-                <h2>Conteúdo da 3ª Mentoria</h2>
-                <p>Preencha com suas diretrizes. Eu ajusto conforme você enviar.</p>
-            </article>
+        <main id="conteudo">
+            <section id="boas">
+                <h1>Boas</h1>
+                <p>Olá e bem vindo(a) a equipe da ANALISE da CIDADE NOBRE!</p>
+                <p>Esta etapa inicial contém os principais ensinamentos e práticas que todos os ANALISTAS devem conhecer
+                    e seguir para desempenhar suas funções com excelência e respeito às regras da equipe.</p>
+            </section>
         </main>
-
-        <aside class="toc" id="toc" aria-label="Índice">
-            <h4>Índice desta página</h4>
-            <nav id="tocLinks"></nav>
-        </aside>
-
-        <footer>
-            Feito com ❤ — Template estático para GitHub Pages. Envie as próximas instruções e eu atualizo os
-            tópicos/menus.
-        </footer>
     </div>
-
-    <script>
-        // Utilidades
-        const qs = (s, el = document) => el.querySelector(s);
-        const qsa = (s, el = document) => Array.from(el.querySelectorAll(s));
-
-        // Alterna artigos conforme clique no menu principal
-        function switchPage(hash) {
-            const id = (hash || '#mentoria-1').replace('#', '');
-            qsa('main [data-toc]').forEach(a => a.hidden = a.id !== id);
-            qsa('.sidebar .nav-item').forEach(a => {
-                const target = a.getAttribute('href').replace('#', '');
-                a.classList.toggle('active', target === id);
-            });
-            buildToc();
-            buildSectionLinks();
-            // Atualiza link de edição (pode apontar para seu repositório)
-            const base = 'https://github.com/SEU_USUARIO/SEU_REPO/edit/main/index.html#';
-            qs('#editLink').href = base + id;
-        }
-
-        // Gera TOC a partir de h2/h3
-        function buildToc() {
-            const current = qs('main [data-toc]:not([hidden])');
-            const headings = qsa('h2, h3', current);
-            const nav = qs('#tocLinks');
-            nav.innerHTML = '';
-            headings.forEach(h => {
-                if (!h.id) h.id = h.textContent.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-                const a = document.createElement('a');
-                a.href = '#' + h.id; a.textContent = h.textContent;
-                if (h.tagName === 'H3') a.style.paddingLeft = '22px';
-                nav.appendChild(a);
-            });
-            // Scrollspy
-            const spy = () => {
-                let currentId = headings[0]?.id;
-                headings.forEach(h => { if (h.getBoundingClientRect().top < 120) currentId = h.id; });
-                qsa('#tocLinks a').forEach(a => a.classList.toggle('active', a.hash === '#' + currentId));
-            };
-            window.removeEventListener('scroll', spy);
-            window.addEventListener('scroll', spy);
-            spy();
-        }
-
-        // Links rápidos no sidebar para seções da página atual (lista de h2)
-        function buildSectionLinks() {
-            const box = qs('#sectionLinks');
-            const current = qs('main [data-toc]:not([hidden])');
-            const h2s = qsa('h2', current);
-            const wrap = document.createElement('div');
-            wrap.innerHTML = h2s.map(h => `<a class="nav-item" href="#${h.id || ''}"># ${h.textContent}</a>`).join('');
-            // Mantém título e substitui conteúdo
-            box.innerHTML = '<div class="nav-title">Seções desta página</div>' + wrap.innerHTML;
-        }
-
-        // Busca simples que filtra itens do sidebar
-        qs('#search').addEventListener('input', (e) => {
-            const term = e.target.value.trim().toLowerCase();
-            qsa('.sidebar .nav-item').forEach(a => {
-                const text = a.textContent.toLowerCase();
-                const isMain = ['mentoria-1', 'mentoria-2', 'mentoria-3'].some(id => a.getAttribute('href').includes(id));
-                // mantêm visível os principais; filtra as seções
-                a.style.display = (!term || isMain || text.includes(term)) ? '' : 'none';
-            });
-        });
-
-        // Mobile toggles
-        const sidebar = qs('#sidebar');
-        const toc = qs('#toc');
-        qs('#openNav').onclick = () => sidebar.classList.toggle('open');
-        qs('#openToc').onclick = () => toc.classList.toggle('open');
-
-        // Navegação por hash
-        window.addEventListener('hashchange', () => switchPage(location.hash));
-        qsa('.sidebar .nav-item').forEach(a => a.addEventListener('click', () => setTimeout(() => sidebar.classList.remove('open'), 50)));
-
-        // Inicializa
-        switchPage(location.hash);
-    </script>
 </body>
 
 </html>
